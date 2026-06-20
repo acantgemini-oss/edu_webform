@@ -159,9 +159,27 @@
                 position: document.getElementById('position').value
             };
 
-            // Temporary alert for Phase 1 testing
-            console.log("Form Data Validated:", formData);
-            alert("اطلاعات به درستی در مرورگر پردازش شد. آماده اتصال به سرور در فاز ۲.");
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'در حال ارسال...';
+
+            fetch('https://script.google.com/macros/s/AKfycbzacgZfLgOkFdMr42mAykx9w_TmLjMzYBbHNZx0kHfKdEF1SDyERjeWxHNetMt6Vxb4/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            }).then(() => {
+                alert('ثبت نام با موفقیت انجام شد.');
+                document.getElementById('registrationForm').reset();
+            }).catch(error => {
+                alert('خطا در ارسال اطلاعات.');
+            }).finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            });
         });
     </script>
 </body>
