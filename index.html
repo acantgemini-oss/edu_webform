@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام دوره تربیت مدیر راهبردی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4 lg:p-8">
+
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-3xl p-6 lg:p-10 border border-slate-200">
+        <div class="text-center mb-8 border-b pb-6">
+            <h1 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-2">دوره تربیت مدیر راهبردی</h1>
+            <p class="text-slate-500">اداره کل آموزش و پرورش استان همدان</p>
+        </div>
+
+        <form id="registrationForm" class="space-y-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">نام و نام خانوادگی <span class="text-red-500">*</span></label>
+                    <input type="text" id="fullName" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">شماره ملی <span class="text-red-500">*</span></label>
+                    <input type="text" id="nationalId" required maxlength="10" placeholder="بدون خط تیره" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors">
+                    <p id="nationalIdError" class="text-red-500 text-xs mt-1 hidden">شماره ملی نامعتبر است.</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">شماره پرسنلی <span class="text-red-500">*</span></label>
+                    <input type="text" id="personnelId" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">شماره همراه <span class="text-red-500">*</span></label>
+                    <input type="text" id="mobile" required maxlength="11" placeholder="09xxxxxxxxx" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">جنسیت <span class="text-red-500">*</span></label>
+                    <div class="flex gap-4 mt-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="gender" value="مرد" required class="w-4 h-4 text-blue-600">
+                            <span>مرد</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="gender" value="زن" required class="w-4 h-4 text-blue-600">
+                            <span>زن</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">سنوات تجربی خدمت (سال) <span class="text-red-500">*</span></label>
+                    <input type="number" id="experience" required min="0" max="50" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">شهر محل سکونت <span class="text-red-500">*</span></label>
+                    <select id="residenceCity" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="همدان">همدان</option>
+                        <option value="ملایر">ملایر</option>
+                        <option value="نهاوند">نهاوند</option>
+                        <option value="تویسرکان">تویسرکان</option>
+                        <option value="اسدآباد">اسدآباد</option>
+                        <option value="کبودرآهنگ">کبودرآهنگ</option>
+                        <option value="بهار">بهار</option>
+                        <option value="رزن">رزن</option>
+                        <option value="فامنین">فامنین</option>
+                        <option value="درگزین">درگزین</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">محل خدمت <span class="text-red-500">*</span></label>
+                    <select id="workplace" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="اداره کل">اداره کل</option>
+                        <option value="ناحیه یک همدان">ناحیه یک همدان</option>
+                        <option value="ناحیه دو همدان">ناحیه دو همدان</option>
+                        <option value="ملایر">ملایر</option>
+                        <option value="نهاوند">نهاوند</option>
+                        <option value="تویسرکان">تویسرکان</option>
+                        <option value="اسدآباد">اسدآباد</option>
+                        <option value="کبودرآهنگ">کبودرآهنگ</option>
+                        <option value="بهار">بهار</option>
+                        <option value="رزن">رزن</option>
+                        <option value="فامنین">فامنین</option>
+                        <option value="درگزین">درگزین</option>
+                    </select>
+                </div>
+
+                <div class="col-span-1 lg:col-span-2">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">سمت <span class="text-red-500">*</span></label>
+                    <select id="position" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="مدیر">مدیر</option>
+                        <option value="معاون">معاون</option>
+                        <option value="کارشناس مسئول">کارشناس مسئول</option>
+                        <option value="کارشناس">کارشناس</option>
+                        <option value="دبیر">دبیر</option>
+                        <option value="آموزگار">آموزگار</option>
+                        <option value="سایر">سایر</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-200">
+                <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors focus:ring-4 focus:ring-blue-300">
+                    ثبت اطلاعات
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function isValidIranianNationalCode(input) {
+            if (!/^\d{10}$/.test(input)) return false;
+            const check = parseInt(input[9]);
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(input[i]) * (10 - i);
+            }
+            sum %= 11;
+            return (sum < 2 && check === sum) || (sum >= 2 && check === 11 - sum);
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nationalIdInput = document.getElementById('nationalId');
+            const nationalIdError = document.getElementById('nationalIdError');
+            
+            if (!isValidIranianNationalCode(nationalIdInput.value)) {
+                nationalIdInput.classList.add('border-red-500');
+                nationalIdError.classList.remove('hidden');
+                return;
+            } else {
+                nationalIdInput.classList.remove('border-red-500');
+                nationalIdError.classList.add('hidden');
+            }
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                nationalId: nationalIdInput.value,
+                personnelId: document.getElementById('personnelId').value,
+                mobile: document.getElementById('mobile').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                experience: document.getElementById('experience').value,
+                residenceCity: document.getElementById('residenceCity').value,
+                workplace: document.getElementById('workplace').value,
+                position: document.getElementById('position').value
+            };
+
+            // Temporary alert for Phase 1 testing
+            console.log("Form Data Validated:", formData);
+            alert("اطلاعات به درستی در مرورگر پردازش شد. آماده اتصال به سرور در فاز ۲.");
+        });
+    </script>
+</body>
+</html>
